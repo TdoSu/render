@@ -33,6 +33,11 @@ export default {
                             password: this.states.password,
                         },
                     })
+                } else if (clickEvent.type === 'custom') {
+                    const code = 'const callback = ' +
+                        clickEvent.callback +
+                        '({ message: "33" })'
+                    window['e' + 'val'](code)
                 }
             }
         },

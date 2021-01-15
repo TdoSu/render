@@ -75,6 +75,17 @@ export default {
                     name: '返回登录页',
                 },
             },
+            {
+                id: 6,
+                name: 'render-button',
+                config: {
+                    clickEvent: {
+                        type: 'custom',
+                        callback: 'function(vm) { alert(vm.message) }',
+                    },
+                    name: '取消',
+                },
+            },
         ],
     },
 }
