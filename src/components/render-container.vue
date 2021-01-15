@@ -17,9 +17,8 @@ import pageConfigs from './config.js'
 // 组件库
 import components from './component-lib.js'
 
-// 设置页面内状态集, 复合状态可以用 json
-// 然后用 this.$set 设置为响应式的
-// 页面之间可以用 params 或者 query 传递
+// TODO: 添加页面打开时通过路由设置 state 的方式
+//      考虑添加一些钩子函数
 
 export default {
     components,
