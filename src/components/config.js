@@ -9,6 +9,7 @@ export default {
                 id: 1,
                 name: 'render-input',
                 config: {
+                    target: 'account',
                     name: '账号',
                     style: { background: 'red' },
                 },
@@ -17,6 +18,7 @@ export default {
                 id: 2,
                 name: 'render-input',
                 config: {
+                    target: 'password',
                     name: '密码',
                     style: { background: 'green' },
                 },
@@ -31,6 +33,16 @@ export default {
                     },
                     name: '登录',
                 },
+            },
+        ],
+        states: [
+            {
+                key: 'account',
+                defaultValue: 'your name',
+            },
+            {
+                key: 'password',
+                defaultValue: 'your password',
             },
         ],
     },

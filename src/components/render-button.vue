@@ -12,6 +12,10 @@ export default {
             type: Object,
             default: () => ({}),
         },
+        states: {
+            type: Object,
+            default: () => ({}),
+        },
     },
     computed: {
         handleClick () {
@@ -22,7 +26,13 @@ export default {
                 } else if (clickEvent.type === 'router-back') {
                     this.$router.back()
                 } else if (clickEvent.type === 'router-push') {
-                    this.$router.push(clickEvent.path)
+                    this.$router.push({
+                        path: clickEvent.path,
+                        query: {
+                            account: this.states.account,
+                            password: this.states.password,
+                        },
+                    })
                 }
             }
         },

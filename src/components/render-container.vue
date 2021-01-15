@@ -5,6 +5,8 @@
             :key="component.id"
             :is="component.name"
             :config="component.config"
+            :states="states"
+            @states-change="handleStatesChange"
         />
     </div>
 </template>
@@ -15,12 +17,17 @@ import pageConfigs from './config.js'
 // 组件库
 import components from './component-lib.js'
 
+// 设置页面内状态集, 复合状态可以用 json
+// 然后用 this.$set 设置为响应式的
+// 页面之间可以用 params 或者 query 传递
+
 export default {
     components,
     data () {
         return {
             // 所有动态页面配置数据
             pageConfigs: {},
+            states: {},
         }
     },
     computed: {
@@ -37,11 +44,30 @@ export default {
         // 获取到所有动态页面配置
         this.getPageConfigs()
     },
+    watch: {
+        currentPageConfig: {
+            handler (newValue) {
+                // 设置页面状态
+                const { states } = newValue
+                if (states) {
+                    states.forEach(({ key, defaultValue }) => {
+                        this.$set(this.states, key, defaultValue)
+                    })
+                } else {
+                    this.states = {}
+                }
+            },
+            deep: true,
+        },
+    },
     methods: {
         getPageConfigs () {
             setTimeout(_ => {
                 this.pageConfigs = pageConfigs
             }, 500)
+        },
+        handleStatesChange (k, v) {
+            this.states[k] = v
         },
     },
 }
