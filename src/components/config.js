@@ -1,4 +1,8 @@
 export default {
+    // key -- 页面路径
+    // value -- 页面配置
+    // components -- 页面内的组件列表
+    // states -- 页面内状态
     '/': {
         message: 'home',
     },

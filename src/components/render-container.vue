@@ -19,6 +19,7 @@ import components from './component-lib.js'
 
 // TODO: 添加页面打开时通过路由设置 state 的方式
 //      考虑添加一些钩子函数
+//      考虑一下是否可以通过 render-container 实现可配置复合组件
 
 export default {
     components,
