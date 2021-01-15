@@ -9,7 +9,7 @@ export default {
                 id: 1,
                 name: 'render-input',
                 config: {
-                    name: '测试输入框1',
+                    name: '账号',
                     style: { background: 'red' },
                 },
             },
@@ -17,7 +17,7 @@ export default {
                 id: 2,
                 name: 'render-input',
                 config: {
-                    name: '测试输入框2',
+                    name: '密码',
                     style: { background: 'green' },
                 },
             },
