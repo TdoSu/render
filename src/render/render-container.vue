@@ -1,13 +1,18 @@
 <template>
     <div class="render-container">
-        <component
+        <div
             v-for="component of currentComponents"
             :key="component.id"
-            :is="component.name"
-            :config="component.config"
-            :states="states"
-            @states-change="handleStatesChange"
-        />
+            style="position: relative;"
+            >
+            <component
+                :is="component.name"
+                :config="component.config"
+                :states="states"
+                @states-change="handleStatesChange"
+            />
+            <div v-if="mode === 'edit'" class="cover"></div>
+        </div>
     </div>
 </template>
 
@@ -25,6 +30,10 @@ export default {
     components,
     props: {
         currentPath: {
+            type: String,
+            default: '',
+        },
+        mode: {
             type: String,
             default: '',
         },
@@ -82,5 +91,16 @@ export default {
         padding: 10px;
         border-radius: 4px;
         background: lightblue;
+    }
+    .cover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .cover:hover {
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.2);
     }
 </style>

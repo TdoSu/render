@@ -16,6 +16,7 @@
                 <br>
                 给渲染器传递一个模式吧, 通过模式区分
                 <RenderContainer
+                    mode="edit"
                     :currentPath="currentPath"
                 />
             </div>
