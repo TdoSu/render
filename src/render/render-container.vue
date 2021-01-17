@@ -23,6 +23,12 @@ import components from '@/config/component-lib.js'
 
 export default {
     components,
+    props: {
+        currentPath: {
+            type: String,
+            default: '',
+        },
+    },
     data () {
         return {
             // 所有动态页面配置数据
@@ -33,7 +39,7 @@ export default {
     computed: {
         // 当前页面配置数据
         currentPageConfig () {
-            const key = this.$route.path
+            const key = this.currentPath || this.$route.path
             return this.pageConfigs[key] || {}
         },
         currentComponents () {
@@ -62,9 +68,7 @@ export default {
     },
     methods: {
         getPageConfigs () {
-            setTimeout(_ => {
-                this.pageConfigs = pageConfigs
-            }, 500)
+            this.pageConfigs = pageConfigs
         },
         handleStatesChange (k, v) {
             this.states[k] = v

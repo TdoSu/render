@@ -4,9 +4,13 @@ export default {
     // components -- 页面内的组件列表
     // states -- 页面内状态
     '/': {
+        id: 1,
+        name: '首页',
         message: 'home',
     },
     '/container1': {
+        id: 2,
+        name: 'demo1',
         message: 'test page - 111111',
         components: [
             {
@@ -51,6 +55,8 @@ export default {
         ],
     },
     '/container2': {
+        id: 3,
+        name: 'demo2',
         message: 'test page - 222222',
         components: [
             {

@@ -7,6 +7,7 @@ import store from './store'
 import RenderContainer from './render/render-container.vue'
 
 // 这里还需要有一个 editor 容器
+import EditorContainer from './editor/editor-container.vue'
 
 Vue.config.productionTip = false
 
@@ -15,7 +16,7 @@ const routes = [
     {
         path: '/',
         name: 'home',
-        component: RenderContainer,
+        component: EditorContainer,
     },
     // demo 页 1
     {
