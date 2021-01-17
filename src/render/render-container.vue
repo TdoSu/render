@@ -13,9 +13,9 @@
 
 <script>
 // 配置文件
-import pageConfigs from './config.js'
+import pageConfigs from '@/config/page-config.js'
 // 组件库
-import components from './component-lib.js'
+import components from '@/config/component-lib.js'
 
 // TODO: 添加页面打开时通过路由设置 state 的方式
 //      考虑添加一些钩子函数
