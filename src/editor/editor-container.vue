@@ -11,7 +11,9 @@
                 @change-page="handleChangePage"
             />
             <hr>
-            <PageDetailEditor />
+            <PageDetailEditor
+                :page-list="pageList"
+            />
         </div>
     </div>
 </template>

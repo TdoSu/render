@@ -4,9 +4,18 @@
         <div class="editor-container">
             <div class="area" style="flex: 30%;">
                 这里有上下两个区域
-                <br>
+                <hr>
                 已选组件区
-                <br>
+                <div class="component-list">
+                    <div
+                        class="component-item"
+                        v-for="component of selectedComponents"
+                        :key="component.id"
+                        >
+                        {{ component.name }}
+                    </div>
+                </div>
+                <hr>
                 可选组件区
             </div>
             <div class="area" style="flex: 40%;">
@@ -39,11 +48,27 @@ export default {
     components: {
         RenderContainer,
     },
+    props: {
+        pageList: {
+            type: Array,
+            default: () => [],
+        },
+    },
     data () {
         return {
             title: '页面编辑区',
             currentPath: '/container1',
         }
+    },
+    computed: {
+        currentPage () {
+            const key = this.currentPath || this.$route.path
+            const target = this.pageList.find(p => p.path === key)
+            return target || { components: [] }
+        },
+        selectedComponents () {
+            return this.currentPage.components
+        },
     },
 }
 
@@ -57,5 +82,22 @@ export default {
     .area {
         height: 100%;
         border: 1px solid #ccc;
+    }
+    .component-list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .component-item {
+        box-sizing: border-box;
+        margin: 4px;
+        padding: 4px 10px;
+        width: 40%;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    .component-item:hover {
+        cursor: pointer;
+        color: #fff;
+        background: lightblue;
     }
 </style>
